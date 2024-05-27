@@ -1,0 +1,43 @@
+import scipy.integrate as spi
+import numpy as np
+
+# Função a ser integrada
+def integrand(x, y):
+    return 1  # f(x,y) = 1 para calcular área
+
+# Função principal
+print("=-=" * 28)
+print("    Este programa calcula a área de um círculo de raio r usando integração dupla.")
+print("=-=" * 28)
+print("\n")
+while True:
+    try:
+        # Solicitando o raio do círculo ao usuário
+        r = float(input("Digite o raio do círculo (ou '0' para sair): "))
+        if r <= 0:
+            print("O raio deve ser um número positivo.")
+            continue
+        if r == 0:
+            break
+    except ValueError:
+        print("Entrada inválida. Digite um número positivo ou '0' para finalizar.")
+        continue
+
+    # Calculando a integral dupla
+    area, error = spi.dblquad(integrand, -r, r, lambda x: -np.sqrt(r**2 - x**2), lambda x: np.sqrt(r**2 - x**2))
+
+    # Área teórica
+    area_teorica = np.pi * r**2
+
+    print("\n")
+    print("=-=" * 13)
+    print(f"Área do círculo de raio {r}: {area:.4f}")
+    print(f"Erro estimado: {error:.4e}")
+    print(f"Área teórica: {area_teorica:.4f}")
+    print("=-=" * 13)
+    print("\n")
+
+    cont = input("Deseja calcular a área para outro raio? (S/N): ")
+    if cont.lower() != 's':
+        print("Saindo...")
+        break
