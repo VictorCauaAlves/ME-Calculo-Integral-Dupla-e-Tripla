@@ -13,11 +13,12 @@ print("\n")
 while True:
     try:
         # Solicitando o raio do círculo ao usuário
-        r = float(input("Digite o raio do círculo (ou '0' para sair): "))
+        r = float(input("Digite o raio do círculo (ou '000' para sair): "))
         if r <= 0:
             print("O raio deve ser um número positivo.")
             continue
-        if r == 0:
+        if r == 000:
+            print("Saindo...")
             break
     except ValueError:
         print("Entrada inválida. Digite um número positivo ou '0' para finalizar.")
