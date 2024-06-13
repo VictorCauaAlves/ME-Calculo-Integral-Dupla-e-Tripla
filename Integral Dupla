@@ -1,5 +1,6 @@
 import scipy.integrate as spi
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Função a ser integrada
 def integrand(x, y):
@@ -37,6 +38,19 @@ while True:
     print(f"Área teórica: {area_teorica:.4f}")
     print("=-=" * 13)
     print("\n")
+
+    # Plotando o círculo
+    fig, ax = plt.subplots()
+    circle = plt.Circle((0, 0), r, color='blue', alpha=0.5)
+    ax.add_artist(circle)
+    ax.set_xlim([-r-1, r+1])
+    ax.set_ylim([-r-1, r+1])
+    ax.set_aspect('equal', 'box')
+    plt.title(f"Círculo de raio {r}")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.grid(True)
+    plt.show()
 
     cont = input("Deseja calcular a área para outro raio? (S/N): ")
     if cont.lower() != 's':
