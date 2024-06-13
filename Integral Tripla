@@ -28,7 +28,7 @@ while True:
 
     # Volume teórico
     volume_teorico = (4/3) * np.pi * r**3
-    
+
     print("\n")
     print("=-=" * 13)
     print(f"Volume da esfera de raio {r}: {volume:.4f}")
@@ -36,7 +36,7 @@ while True:
     print(f"Volume teórico: {volume_teorico:.4f}")
     print("=-=" * 13)
     print("\n")
-    
+
     cont = input("Deseja calcular o volume para outro raio? (S/N): ")
     if cont.lower() != 's':
         print("Saindo..")
